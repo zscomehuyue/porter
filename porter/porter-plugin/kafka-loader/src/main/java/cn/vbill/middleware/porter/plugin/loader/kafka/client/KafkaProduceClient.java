@@ -186,6 +186,7 @@ public class KafkaProduceClient extends AbstractClient<KafkaProduceConfig> imple
             try {
                 nativeSendTo(msgList, sync);
             } catch (Throwable e) {
+                //todo 导致服务暂停，如何恢复？
                 throw new TaskStopTriggerException(e);
             }
         }
